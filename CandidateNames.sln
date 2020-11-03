@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandidateNames", "CandidateNames\CandidateNames.csproj", "{415F9DBA-ABBD-4653-8858-1508B173A683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandidateNames.Tests", "CandidateNames.Tests\CandidateNames.Tests.csproj", "{064D2526-8552-4725-9059-4D70615E395B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{0578A6DD-8055-4488-847B-9F3CFE2BB27D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{40A3303E-B609-4C84-BDF2-27EFCC62E3C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITelentCloudsServices", "ITelentCloudsServices\ITelentCloudsServices.csproj", "{64886C60-261B-45D0-9611-9901C72E41C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelentCloudsServices", "TelentCloudsServices\TelentCloudsServices.csproj", "{5353DE76-48F1-4696-A5D5-8C1C1C486F21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{44939EC3-D1CB-4886-A02E-E439914D48DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalentClouds_UnitTests", "TalentClouds_UnitTests\TalentClouds_UnitTests.csproj", "{9F647641-EDCC-4195-8B3F-6B687577E81A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{415F9DBA-ABBD-4653-8858-1508B173A683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415F9DBA-ABBD-4653-8858-1508B173A683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415F9DBA-ABBD-4653-8858-1508B173A683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415F9DBA-ABBD-4653-8858-1508B173A683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{064D2526-8552-4725-9059-4D70615E395B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{064D2526-8552-4725-9059-4D70615E395B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{064D2526-8552-4725-9059-4D70615E395B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{064D2526-8552-4725-9059-4D70615E395B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64886C60-261B-45D0-9611-9901C72E41C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64886C60-261B-45D0-9611-9901C72E41C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64886C60-261B-45D0-9611-9901C72E41C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64886C60-261B-45D0-9611-9901C72E41C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5353DE76-48F1-4696-A5D5-8C1C1C486F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5353DE76-48F1-4696-A5D5-8C1C1C486F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5353DE76-48F1-4696-A5D5-8C1C1C486F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5353DE76-48F1-4696-A5D5-8C1C1C486F21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F647641-EDCC-4195-8B3F-6B687577E81A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F647641-EDCC-4195-8B3F-6B687577E81A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F647641-EDCC-4195-8B3F-6B687577E81A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F647641-EDCC-4195-8B3F-6B687577E81A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64886C60-261B-45D0-9611-9901C72E41C1} = {40A3303E-B609-4C84-BDF2-27EFCC62E3C3}
+		{5353DE76-48F1-4696-A5D5-8C1C1C486F21} = {40A3303E-B609-4C84-BDF2-27EFCC62E3C3}
+		{9F647641-EDCC-4195-8B3F-6B687577E81A} = {44939EC3-D1CB-4886-A02E-E439914D48DA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01074BCC-47C0-4E41-B090-3B30F5F9964B}
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal
