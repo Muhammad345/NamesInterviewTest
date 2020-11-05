@@ -30,6 +30,10 @@ namespace CandidateNames
             container.RegisterType<IValidationService, NamePatternValidationService>();
             container.RegisterType<ISearchForenameService, SearchForenameService>();
             container.RegisterType<IService<Company>, CompanyService>();
+            container.RegisterType<IService<UserDetail>, UserDetailService>();
+            container.RegisterType<IService<BillingDetails>, BillingDetailsService>();
+            
+          
 
             return container;
         }

@@ -1,5 +1,6 @@
 ﻿using CandidateNames.Models;
 using ITelentCloudsServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,19 @@ namespace TelentCloudsServices
 
         public DataServiceResponse Insert(UserDetail obj)
         {
+            try
+            {
+                var jsonData = JsonConvert.SerializeObject(obj);
+                var result = FileService.WriteFile("userDetail.json", jsonData);
+            }
+            catch (Exception exp)
+            {
 
-            //FileService.WriteFile("company",)
-            return null;
+                return new DataServiceResponse { IsSuccessFull = false , ErrorDetails = exp };
+            }
+
+
+            return new DataServiceResponse { IsSuccessFull = true };
         }
 
         public DataServiceResponse Update(UserDetail obj)

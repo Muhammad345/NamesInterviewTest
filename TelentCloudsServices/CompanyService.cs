@@ -13,6 +13,12 @@ namespace TelentCloudsServices
     {
         public IFileService FileService { get; set; }
 
+        private readonly string FileName = "companydata.json";
+
+        public CompanyService()
+        {
+        }
+
         public CompanyService(IFileService fileService)
         {
             FileService = fileService;
@@ -24,7 +30,9 @@ namespace TelentCloudsServices
 
         public IEnumerable<Company> GetAll()
         {
-            throw new NotImplementedException();
+            var data = FileService.ReadFile(FileName);
+           
+            return JsonConvert.DeserializeObject<IEnumerable<Company>>(data);
         }
 
         public Company GetById(object id)
@@ -34,9 +42,22 @@ namespace TelentCloudsServices
 
         public DataServiceResponse Insert(Company obj)
         {
-            string companyData = JsonConvert.SerializeObject(obj);
-            var result = FileService.WriteFile("companydata.json", companyData);
-            return null;
+            try
+            {
+                var companyData = new List<Company>
+                {
+                    obj
+                };
+
+                string data = JsonConvert.SerializeObject(companyData);
+                var result = FileService.WriteFile(FileName, data);
+            }
+            catch (Exception exp)
+            {
+                return new DataServiceResponse { IsSuccessFull = false, ErrorDetails = exp };
+            }
+
+            return new DataServiceResponse { IsSuccessFull = true };
         }
 
         public DataServiceResponse Update(Company obj)

@@ -31,6 +31,19 @@ namespace TelentCloudsServices
             return null;
         }
 
+        public string ReadFile(string fileName)
+        {
+            var filePath = GetFullFilePath(fileName);
+
+            if (File.Exists(filePath))
+            {
+
+                return File.ReadAllText(filePath);
+            }
+
+            return string.Empty;
+        }
+
         public string WriteFile(string fileName,string[] lines)
         {
             var filePath = GetFullFilePath(fileName); 
@@ -50,13 +63,13 @@ namespace TelentCloudsServices
             {
                 var filePath = GetFullFilePath(fileName);
 
-                if (File.Exists(filePath))
+                if (!File.Exists(filePath))
                 {
 
                     File.WriteAllText(filePath, json);
                 }
 
-                return string.Empty;
+                return "Added File";
             }
             catch (Exception exp)
             {

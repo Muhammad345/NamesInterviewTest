@@ -9,6 +9,8 @@ namespace ITelentCloudsServices
     public interface IFileService
     {
         string[] ReadFileContent(string fileName);
+        string ReadFile(string fileName);
+
         string WriteFile(string fileName, string[] lines);
         string WriteFile(string fileName, string json);
     }

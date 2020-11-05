@@ -21,32 +21,37 @@ namespace CandidateNames.Controllers
         // GET: 
         public ActionResult Index()
         {
-            //return View(CompanyService.GetAll());
-            return View();
+            return View(CompanyService.GetAll());
         }
 
 
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var company = new Company { Name ="ETZ", Industry ="Software development",Size = 200};
+            return View(company);
         }
 
 
         [HttpPost]
         public ActionResult Create(Company company)
         {
-            return Redirect("index");
+            company.Id = Guid.NewGuid();
 
-            //return View();
+            if (CompanyService.Insert(company).IsSuccessFull)
+            {
+                return Redirect("index");
+            }
+
+            return View(company);
         }
 
         [HttpGet]
-        public ActionResult AddBillingAddress(Guid companyId)
+        public ActionResult AddBillingAddress(Guid id)
         {
             var billingAddress = new BillingDetails
             {
-                CompanyId = companyId
+                CompanyId = id
             };
 
             return View(billingAddress);
@@ -56,9 +61,26 @@ namespace CandidateNames.Controllers
         [HttpPost]
         public ActionResult AddBillingAddress(BillingDetails billingAddress)
         {
-            return Redirect("index");
+            return RedirectToAction("index", "Company");
+        }
 
-            //return View();
+
+        [HttpGet]
+        public ActionResult AddUserDetail(Guid id)
+        {
+            var userDetail = new UserDetail
+            {
+                CompanyId = id
+            };
+
+            return View(userDetail);
+        }
+
+
+        [HttpPost]
+        public ActionResult AddUserDetail(UserDetail userDetail)
+        {
+            return RedirectToAction("index", "Company");
         }
     }
 }
