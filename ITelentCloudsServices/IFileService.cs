@@ -10,5 +10,6 @@ namespace ITelentCloudsServices
     {
         string[] ReadFileContent(string fileName);
         string WriteFile(string fileName, string[] lines);
+        string WriteFile(string fileName, string json);
     }
 }

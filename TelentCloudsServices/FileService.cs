@@ -44,6 +44,27 @@ namespace TelentCloudsServices
             return string.Empty;
         }
 
+        public string WriteFile(string fileName, string json)
+        {
+            try
+            {
+                var filePath = GetFullFilePath(fileName);
+
+                if (File.Exists(filePath))
+                {
+
+                    File.WriteAllText(filePath, json);
+                }
+
+                return string.Empty;
+            }
+            catch (Exception exp)
+            {
+
+                throw exp;
+            }
+        }
+
         private string GetFullFilePath(string fileName)
         {
             if(string.IsNullOrWhiteSpace(Path))

@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using CandidateNames.Models;
 using DAL;
 using ITelentCloudsServices;
 using Microsoft.Practices.Unity;
@@ -28,6 +29,7 @@ namespace CandidateNames
             container.RegisterType<ICounterService, CounterService>();
             container.RegisterType<IValidationService, NamePatternValidationService>();
             container.RegisterType<ISearchForenameService, SearchForenameService>();
+            container.RegisterType<IService<Company>, CompanyService>();
 
             return container;
         }

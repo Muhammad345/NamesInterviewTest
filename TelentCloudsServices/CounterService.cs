@@ -14,7 +14,7 @@ namespace TelentCloudsServices
             if (string.IsNullOrWhiteSpace(fullName))
                 return 0;
 
-            return fullName.ToLower().ToCharArray().Where(x => x == letter).Count();
+            return fullName.ToLower().ToCharArray().Where(x => x == char.ToLower(letter)).Count();
         }
     }
 }

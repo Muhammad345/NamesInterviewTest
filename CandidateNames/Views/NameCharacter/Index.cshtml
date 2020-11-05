@@ -1,0 +1,19 @@
+﻿@model CandidateNames.Models.FornameCounter
+
+@{
+    ViewBag.Title = "Forename first Character counter";
+}
+
+<h2>Forename first character</h2>
+
+<table class="table">
+
+@foreach (var item in Model.nameCharacterCounter) {
+    <tr>
+        <td>
+            * @item.Key appears @item.Value times
+        </td>
+    </tr>
+}
+
+</table>
