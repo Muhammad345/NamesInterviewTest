@@ -1,27 +1,27 @@
 ﻿using CandidateNames.Models;
 using ITelentCloudsServices;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using TelentCloudsServices;
 
 namespace CandidateNames.Controllers
 {
     public class CompanyController : Controller
     {
-        public readonly IService<Company> CompanyService;
-        
-        public CompanyController(IService<Company> companyService)
+        public readonly IDataService<Company> CompanyDataService;
+        public readonly IDataService<UserDetail> UserDataService;
+        public readonly IDataService<BillingDetails> BillingDataService;
+
+        public CompanyController(IDataService<Company> companyDataService, IDataService<UserDetail> userDataService, IDataService<BillingDetails> billingDataService)
         {
-            CompanyService = companyService;
+            CompanyDataService = companyDataService;
+            UserDataService = userDataService;
+            BillingDataService = billingDataService;
         }
         
         // GET: 
         public ActionResult Index()
         {
-            return View(CompanyService.GetAll());
+            return View(CompanyDataService.GetAll());
         }
 
 
@@ -36,11 +36,16 @@ namespace CandidateNames.Controllers
         [HttpPost]
         public ActionResult Create(Company company)
         {
-            company.Id = Guid.NewGuid();
 
-            if (CompanyService.Insert(company).IsSuccessFull)
+            if (ModelState.IsValid)
             {
-                return Redirect("index");
+
+                company.Id = Guid.NewGuid();
+
+                if (CompanyDataService.Insert(company).IsSuccessFull)
+                {
+                    return Redirect("index");
+                }
             }
 
             return View(company);
@@ -51,7 +56,8 @@ namespace CandidateNames.Controllers
         {
             var billingAddress = new BillingDetails
             {
-                CompanyId = id
+                CompanyId = id,
+                 Address = "Any Address"
             };
 
             return View(billingAddress);
@@ -61,7 +67,16 @@ namespace CandidateNames.Controllers
         [HttpPost]
         public ActionResult AddBillingAddress(BillingDetails billingAddress)
         {
-            return RedirectToAction("index", "Company");
+
+            if (ModelState.IsValid)
+            {
+                if (BillingDataService.Insert(billingAddress).IsSuccessFull)
+                {
+                    return RedirectToAction("index", "Company");
+                }
+            }
+
+            return View(billingAddress);
         }
 
 
@@ -70,7 +85,10 @@ namespace CandidateNames.Controllers
         {
             var userDetail = new UserDetail
             {
-                CompanyId = id
+                CompanyId = id,
+                Name = "Irfan",
+                Email ="IrfanAkhtar345@hotmail.com",
+                Password = "Irfan"
             };
 
             return View(userDetail);
@@ -80,7 +98,16 @@ namespace CandidateNames.Controllers
         [HttpPost]
         public ActionResult AddUserDetail(UserDetail userDetail)
         {
-            return RedirectToAction("index", "Company");
+            if (ModelState.IsValid)
+            {
+
+                if (UserDataService.Insert(userDetail).IsSuccessFull)
+                {
+                    return RedirectToAction("index", "Company");
+                }
+            }
+
+            return View(userDetail);
         }
     }
 }

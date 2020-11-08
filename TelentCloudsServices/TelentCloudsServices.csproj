@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserDetailService.cs" />
-    <Compile Include="BillingDetailsService.cs" />
-    <Compile Include="CompanyService.cs" />
+    <Compile Include="UserDataService.cs" />
+    <Compile Include="BillingDataService.cs" />
+    <Compile Include="CompanyDataService.cs" />
     <Compile Include="NamePatternValidationService.cs" />
     <Compile Include="CounterService.cs" />
     <Compile Include="FileService.cs" />

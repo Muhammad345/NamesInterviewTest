@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IService.cs" />
+    <Compile Include="IDataService.cs" />
     <Compile Include="ISearchForenameService.cs" />
     <Compile Include="IValidationService.cs" />
     <Compile Include="ICounterService.cs" />

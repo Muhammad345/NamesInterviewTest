@@ -29,9 +29,9 @@ namespace CandidateNames
             container.RegisterType<ICounterService, CounterService>();
             container.RegisterType<IValidationService, NamePatternValidationService>();
             container.RegisterType<ISearchForenameService, SearchForenameService>();
-            container.RegisterType<IService<Company>, CompanyService>();
-            container.RegisterType<IService<UserDetail>, UserDetailService>();
-            container.RegisterType<IService<BillingDetails>, BillingDetailsService>();
+            container.RegisterType<IDataService<Company>, CompanyDataService>();
+            container.RegisterType<IDataService<UserDetail>, UserDataService>();
+            container.RegisterType<IDataService<BillingDetails>, BillingDataService>();
             
           
 

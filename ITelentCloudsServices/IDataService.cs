@@ -7,7 +7,7 @@ using TelentCloudsServices;
 
 namespace ITelentCloudsServices
 { 
-    public interface IService<T>
+    public interface IDataService<T>
     {
         IEnumerable<T> GetAll();
         T GetById(object id);

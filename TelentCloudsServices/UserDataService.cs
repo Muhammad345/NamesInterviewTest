@@ -9,17 +9,13 @@ using System.Threading.Tasks;
 
 namespace TelentCloudsServices
 {
-    public class CompanyService : IService<Company>
+    public class UserDataService : IDataService<UserDetail>
     {
         public IFileService FileService { get; set; }
 
-        private readonly string FileName = "companydata.json";
+        private readonly string FileName = "userDetail-collection.json";
 
-        public CompanyService()
-        {
-        }
-
-        public CompanyService(IFileService fileService)
+        public UserDataService(IFileService fileService)
         {
             FileService = fileService;
         }
@@ -28,28 +24,42 @@ namespace TelentCloudsServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Company> GetAll()
+        public IEnumerable<UserDetail> GetAll()
         {
             var data = FileService.ReadFile(FileName);
-           
-            return JsonConvert.DeserializeObject<IEnumerable<Company>>(data);
+
+            if (string.IsNullOrWhiteSpace(data))
+            {
+                return new List<UserDetail>();
+            }
+
+            return JsonConvert.DeserializeObject<IEnumerable<UserDetail>>(data);
         }
 
-        public Company GetById(object id)
+        public UserDetail GetById(object id)
         {
             throw new NotImplementedException();
         }
 
-        public DataServiceResponse Insert(Company obj)
+        public DataServiceResponse Insert(UserDetail obj)
         {
             try
             {
-                var companyData = new List<Company>
-                {
-                    obj
-                };
+                var userDetails = GetAll().ToList();
 
-                string data = JsonConvert.SerializeObject(companyData);
+                var foundItem = userDetails.Find(x => x.CompanyId == obj.CompanyId);
+
+                if (foundItem != null)
+                {
+                    userDetails.Remove(foundItem);
+                    userDetails.Add(obj);
+                }
+                else
+                {
+                    userDetails.Add(obj);
+                }
+
+                string data = JsonConvert.SerializeObject(userDetails);
                 var result = FileService.WriteFile(FileName, data);
             }
             catch (Exception exp)
@@ -60,9 +70,10 @@ namespace TelentCloudsServices
             return new DataServiceResponse { IsSuccessFull = true };
         }
 
-        public DataServiceResponse Update(Company obj)
+        public DataServiceResponse Update(UserDetail obj)
         {
             throw new NotImplementedException();
         }
+
     }
 }

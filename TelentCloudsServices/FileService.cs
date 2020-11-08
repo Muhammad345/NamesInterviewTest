@@ -62,13 +62,7 @@ namespace TelentCloudsServices
             try
             {
                 var filePath = GetFullFilePath(fileName);
-
-                if (!File.Exists(filePath))
-                {
-
-                    File.WriteAllText(filePath, json);
-                }
-
+                File.WriteAllText(filePath, json);
                 return "Added File";
             }
             catch (Exception exp)
