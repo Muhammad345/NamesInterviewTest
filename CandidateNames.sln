@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandidateNames", "CandidateNames\CandidateNames.csproj", "{415F9DBA-ABBD-4653-8858-1508B173A683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandidateNames.Tests", "CandidateNames.Tests\CandidateNames.Tests.csproj", "{064D2526-8552-4725-9059-4D70615E395B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{0578A6DD-8055-4488-847B-9F3CFE2BB27D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{40A3303E-B609-4C84-BDF2-27EFCC62E3C3}"
@@ -35,10 +33,6 @@ Global
 		{415F9DBA-ABBD-4653-8858-1508B173A683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415F9DBA-ABBD-4653-8858-1508B173A683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415F9DBA-ABBD-4653-8858-1508B173A683}.Release|Any CPU.Build.0 = Release|Any CPU
-		{064D2526-8552-4725-9059-4D70615E395B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{064D2526-8552-4725-9059-4D70615E395B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{064D2526-8552-4725-9059-4D70615E395B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{064D2526-8552-4725-9059-4D70615E395B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0578A6DD-8055-4488-847B-9F3CFE2BB27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,7 +69,7 @@ Global
 		{F577AABA-4458-4B7A-A85E-5A7E838DC064} = {BDDD2A1D-F78D-4943-91CE-6860B9D964F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 		SolutionGuid = {01074BCC-47C0-4E41-B090-3B30F5F9964B}
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

@@ -6,14 +6,33 @@
 
 <h2>Forename first character</h2>
 
-<table class="table">
+        <h2>Please set Path in Webconfig for File to read data from your drive </h2>
+        <pre>
+     
+                appSettings>
+                  add key="path" value="To your drive Location"
+                
+        </pre>
 
-@foreach (var item in Model.nameCharacterCounter) {
-    <tr>
-        <td>
-            * @item.Key appears @item.Value times
-        </td>
-    </tr>
-}
+    <h2>Search following forename in Database</h2>
 
-</table>
+    <ul>
+        @foreach (var item in Model.Forenames)
+        {
+            <li>@item</li>
+        }
+    </ul>
+
+    <h2>Search result </h2>
+    <table class="table">
+
+        @foreach (var item in Model.nameCharacterCounter)
+        {
+            <tr>
+                <td>
+                    * @item.Key appears @item.Value times
+                </td>
+            </tr>
+        }
+
+    </table>

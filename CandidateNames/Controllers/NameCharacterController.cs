@@ -27,7 +27,7 @@ namespace CandidateNames.Controllers
         // GET: NameCharacter
         public ActionResult Index()
         {
-            var fornameCounter = new FornameCounter { nameCharacterCounter = CountFornameSample() };
+            var fornameCounter = new FornameCounter { nameCharacterCounter = CountFornameSample(), Forenames = SampleFornames };
             return View(fornameCounter);
         }
 
